@@ -1,22 +1,26 @@
+#include <stdio.h>
 #include <stdlib.h>
 
-// Defining the linked list
-typedef struct Node
+
+typedef struct Stack
 {
     int x;
     //Pointer, pointing to the next Node:
-    struct Node *next;
-}   Node;
+    struct Stack *next;
+}   Stack;
 
-void insert_end(Node **root, int value)
+Stack *stack_a;
+Stack *stack_b;
+
+void insert_end(Stack **stack_a, int value)
 {
-    Node *new_node = malloc(sizeof(Node));
+    Stack *new_node = malloc(sizeof(Stack));
     if (!new_node)
         exit (1);
     new_node->next = NULL;
     new_node->x = value;
 
-    Node *curr = *root;
+    Stack *curr = *stack_a;
     while (curr->next != NULL)
     {
         curr = curr->next;
@@ -24,49 +28,26 @@ void insert_end(Node **root, int value)
     curr->next = new_node;
 }
 
-#include <stdio.h>
-
-// int main(int argc, char **argv)
-// {
-//     if (!argc || !argv)
-//         return (0);
-//     Node root;
-//     root.x = 15;
-//     // Dynamically allocating memory 
-//     root.next = malloc(sizeof(Node));
-//     root.next->x = -2;
-//     root.next-> next = malloc(sizeof(Node));
-//     root.next->next->x = 22;
-//     root.next->next->next = NULL;
-
-//     Node *curr = &root;
-
-//     //Simple while loop for iterating through Node and printing out the numbers
-//     while (curr != NULL)
-//     {
-//         printf("%d\n", curr->x);
-//         curr = curr -> next;
-//     }
-//     //Freeing used memory
-//     // free(root.next->next);
-//     // free(root.next);
-//     return (0);
-// }
-
 int main(int argc, char **argv)
 {
-    if (!argc || !argv)
-        return (0);
-    Node *root = malloc(sizeof(Node));
-    if (root == NULL)
+    if (argc < 2)
+        return (printf("Please compile with argument. Programm failed. Just like your parents did.\n"));
+    //Cover the cases with one ane argument in a string, or arguments provided without strings
+    Stack *stack_a = malloc(sizeof(Stack));
+    if (stack_a == NULL)
         exit(2);
-    root->x = 15;
-    root->next = NULL;
-
-    insert_end(&root, -2);
-    insert_end(&root, -11);
-    for (Node *curr = root; curr != NULL; curr = curr->next)
+    stack_a->x = atoi(argv[1]);
+    stack_a->next = NULL;
+    int i = 2;
+    while (i < argc) //skipping the name of the file
+    {
+        insert_end(&stack_a, atoi(argv[i]));
+        i++;
+    }
+    //print the values for testing purposes:
+    for (Stack *curr = stack_a; curr != NULL; curr = curr->next)
     {
         printf("%d\n", curr->x);
     }
+    //Cover the cases with multiple arguments, placed in one string
 }
