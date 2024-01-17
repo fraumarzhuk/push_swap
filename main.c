@@ -1,13 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-
-typedef struct Stack
-{
-    int x;
-    //Pointer, pointing to the next Node:
-    struct Stack *next;
-}   Stack;
+#include "push_swap.h"
 
 Stack *stack_a;
 Stack *stack_b;
@@ -18,7 +9,7 @@ void insert_end(Stack **stack_a, int value)
     if (!new_node)
         exit (1);
     new_node->next = NULL;
-    new_node->x = value;
+    new_node->value = value;
 
     Stack *curr = *stack_a;
     while (curr->next != NULL)
@@ -30,13 +21,16 @@ void insert_end(Stack **stack_a, int value)
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
-        return (printf("Please compile with argument. Programm failed. Just like your parents did.\n"));
+    if (argc < 2 || (argc > 2 && !argv[1][0]))
+    // TODO:
+    //Handle error handling in all the cases(incorrect input zbs)
+    // Create 2 stacks;
+        return (printf("Please compile with arguments. Programm failed. Just like your parents did.\n"));
     //Cover the cases with one ane argument in a string, or arguments provided without strings
     Stack *stack_a = malloc(sizeof(Stack));
     if (stack_a == NULL)
         exit(2);
-    stack_a->x = atoi(argv[1]);
+    stack_a->value = atoi(argv[1]);
     stack_a->next = NULL;
     int i = 2;
     while (i < argc) //skipping the name of the file
@@ -47,7 +41,7 @@ int main(int argc, char **argv)
     //print the values for testing purposes:
     for (Stack *curr = stack_a; curr != NULL; curr = curr->next)
     {
-        printf("%d\n", curr->x);
+        printf("%d\n", curr->value);
     }
-    //Cover the cases with multiple arguments, placed in one string
+    //Don't forget to cover the cases with multiple arguments, placed in one string
 }
