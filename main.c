@@ -25,17 +25,17 @@ int main(int argc, char **argv)
     // TODO:
     //Handle error handling in all the cases(incorrect input zbs)
     // Create 2 stacks;
-        return (printf("Please compile with arguments. Programm failed. Just like your parents did.\n"));
+        return (ft_printf("Please compile with arguments. Programm failed. Just like your parents did.\n"));
     //Cover the cases with one ane argument in a string, or arguments provided without strings
     Stack *stack_a = malloc(sizeof(Stack));
     if (stack_a == NULL)
         exit(2);
-    stack_a->value = atoi(argv[1]);
+    stack_a->value = ft_atoi(argv[1]);
     stack_a->next = NULL;
     int i = 2;
     while (i < argc) //skipping the name of the file
     {
-        insert_end(&stack_a, atoi(argv[i]));
+        insert_end(&stack_a, ft_atoi(argv[i]));
         i++;
     }
     //print the values for testing purposes:

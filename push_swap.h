@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 # include "./libft/libft.h"
+#include "./libft/printf/ft_printf.h"
+
 // # include "./printf/printf.h"
 
 typedef struct Stack
