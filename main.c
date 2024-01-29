@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/29 13:43:33 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:15:38 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,38 @@ int main(int argc, char **argv)
     stack_a->next = NULL;
     int i = 1;
     char **input;
-    while (i < argc) //skipping the name of the file
+    while (i < argc) // Skipping the name of the file
     {
-       input = ft_split(argv[i], ' ');
-        while (*input)
+        input = ft_split(argv[i], ' ');
+        int j = 0;
+        while (input[j])
         {
-            if(!stack_a->value)
-                stack_a->value = ft_atoi(*input);
+            char *str = input[j];
+            for (int k = 0; str[k] != '\0'; k++) {
+                if (ft_isalpha(str[k])) {
+                    return(printf("Error\n"));
+                }
+            }
+
+            if (!stack_a->value)
+                stack_a->value = ft_atoi(str);
             else
-                insert_end(&stack_a, ft_atoi(*input));
-            input++;         
+                insert_end(&stack_a, ft_atoi(str));
+            
+            j++;         
         }
         i++;
     }
-    //print the values for testing purposes:
+    //Print thge initiation of the stack:
+    ft_printf("Init a and b:\n");
     for (Stack *curr = stack_a; curr != NULL; curr = curr->next)
     {
         printf("%d\n", curr->value);
     }
+    printf("_ _\na b\n");
     //Don't forget to cover the cases with multiple arguments, placed in one string
+    //TODO:
+    //1. Sorting 3 numbers;
+    //2. Sorting 5 numbers;
+    //3. Create an algorithm for large numbers. Create a 3rd stack;
 }
