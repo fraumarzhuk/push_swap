@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/29 18:15:38 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/01/29 18:31:49 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
         }
         i++;
     }
-    //Print thge initiation of the stack:
+    //Print thge initiation of the stack(remove later):
     ft_printf("Init a and b:\n");
     for (Stack *curr = stack_a; curr != NULL; curr = curr->next)
     {
@@ -81,4 +81,4 @@ int main(int argc, char **argv)
     //1. Sorting 3 numbers;
     //2. Sorting 5 numbers;
     //3. Create an algorithm for large numbers. Create a 3rd stack;
-}
+} 
