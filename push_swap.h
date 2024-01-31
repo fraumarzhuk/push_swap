@@ -20,17 +20,17 @@ typedef struct s_Stack
     struct s_Stack *prev;
 }   t_Stack;
 
-void    insert_end(s_Stack **stack_a, int value);
-void    sa(s_Stack *stack_a);
-void    sb(s_Stack *stack_b);
-void    ss(s_Stack *stack_a, s_Stack *stack_b);
-void    pa(s_Stack **stack_a, s_Stack **stack_b);
-void    pb(s_Stack **stack_a, s_Stack **stack_b);
-void    ra(s_Stack **stack_a);
-void    rb(s_Stack **stack_b);
-void    rr(s_Stack *stack_a, s_Stack *stack_b);
-void    rra(s_Stack **stack_a);
-void    rrb(s_Stack **stack_b);
-void    rrr(s_Stack *stack_a, s_Stack *stack_b);
+void    insert_end(t_Stack **stack_a, int value);
+void    sa(t_Stack *stack_a);
+void    sb(t_Stack *stack_b);
+void    ss(t_Stack *stack_a, t_Stack *stack_b);
+void    pa(t_Stack **stack_a, t_Stack **stack_b);
+void    pb(t_Stack **stack_a, t_Stack **stack_b);
+void    ra(t_Stack **stack_a);
+void    rb(t_Stack **stack_b);
+void    rr(t_Stack *stack_a, t_Stack *stack_b);
+void    rra(t_Stack **stack_a);
+void    rrb(t_Stack **stack_b);
+void    rrr(t_Stack *stack_a, t_Stack *stack_b);
 
 #endif
