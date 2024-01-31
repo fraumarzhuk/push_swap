@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:20:23 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/29 18:02:55 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:55:11 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // sa (swap a): Swap the first 2 elements at the top of stack a.
 // Do nothing if there is only one or no elements.
-void sa(Stack *stack_a)
+void sa(t_Stack *stack_a)
 {
     int temp;
     

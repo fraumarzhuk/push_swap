@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:19:02 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/29 17:23:10 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:55:01 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 // rb (rotate b): Shift up all elements of stack b by 1.
 // The first element becomes the last one.
-void rb(Stack **stack_b)
+void rb(t_Stack **stack_b)
 {
-    Stack *first;
-    Stack *last;
+    t_Stack *first;
+    t_Stack *last;
 
     if (*stack_b == NULL || (*stack_b)->next == NULL)
         return;
@@ -32,17 +32,17 @@ void rb(Stack **stack_b)
     ft_printf("rb\n");
 }
 // rr : ra and rb at the same time.
-void rr(Stack *stack_a, Stack *stack_b)
+void rr(t_Stack *stack_a, t_Stack *stack_b)
 {
     ra(&stack_a);
     rb(&stack_b);
 }
 // rra (reverse rotate a): Shift down all elements of stack a by 1.
 // The last element becomes the first one.
-void rra(Stack **stack_a)
+void rra(t_Stack **stack_a)
 {
-    Stack *last;
-    Stack *second_to_last;
+    t_Stack *last;
+    t_Stack *second_to_last;
     
     if (*stack_a == NULL || (*stack_a)->next == NULL)
         return; // Do nothing if the stack is empty or has only one element
@@ -66,10 +66,10 @@ void rra(Stack **stack_a)
 }
 // rrb (reverse rotate b): Shift down all elements of stack b by 1.
 // The last element becomes the first one.
-void rrb(Stack **stack_b)
+void rrb(t_Stack **stack_b)
 {
-    Stack *last;
-    Stack *second_to_last;
+    t_Stack *last;
+    t_Stack *second_to_last;
     
     if (*stack_b == NULL || (*stack_b)->next == NULL)
         return;
@@ -90,7 +90,7 @@ void rrb(Stack **stack_b)
     ft_printf("rrb\n");
 }
 // rrr : rra and rrb at the same time.
-void rrr(Stack *stack_a, Stack *stack_b)
+void rrr(t_Stack *stack_a, t_Stack *stack_b)
 {
     rra(&stack_a);
     rrb(&stack_b);

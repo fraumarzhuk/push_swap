@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/29 18:02:45 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:54:48 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // sb (swap b): Swap the first 2 elements at the top of stack b.
 // Do nothing if there is only one or no elements.
-void sb(Stack *stack_b)
+void sb(t_Stack *stack_b)
 {
     int temp;
     
@@ -28,16 +28,16 @@ void sb(Stack *stack_b)
     }
 }
 // ss : sa and sb at the same time.
-void ss(Stack *stack_a, Stack *stack_b)
+void ss(t_Stack *stack_a, t_Stack *stack_b)
 {
     sa(stack_a);
     sb(stack_b);
 }
 // pa (push a): Take the first element at the top of b and put it at the top of a.
 // Do nothing if b is empty.
-void pa(Stack **stack_a, Stack **stack_b)
+void pa(t_Stack **stack_a, t_Stack **stack_b)
 {
-    Stack *temp;
+    t_Stack *temp;
 
     if (*stack_b != NULL)
     {
@@ -50,9 +50,9 @@ void pa(Stack **stack_a, Stack **stack_b)
 }
 // pb (push b): Take the first element at the top of a and put it at the top of b.
 // Do nothing if a is empty.
-void pb(Stack **stack_a, Stack **stack_b)
+void pb(t_Stack **stack_a, t_Stack **stack_b)
 {
-    Stack *temp;
+    t_Stack *temp;
 
     if (*stack_a != NULL)
     {
@@ -65,10 +65,10 @@ void pb(Stack **stack_a, Stack **stack_b)
 }
 // ra (rotate a): Shift up all elements of stack a by 1.
 // The first element becomes the last one.
-void ra(Stack **stack_a)
+void ra(t_Stack **stack_a)
 {
-    Stack *first;
-    Stack *last;
+    t_Stack *first;
+    t_Stack *last;
 
     if (*stack_a == NULL || (*stack_a)->next == NULL)
         return; // Do nothing if the stack is empty or has only one element
