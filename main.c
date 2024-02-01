@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/01 15:14:11 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:56:35 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,41 +30,62 @@ void insert_end(t_Stack **stack_a, int value)
 
 int init_stack_a(t_Stack *stack_a, char *argv)
 {
-    char **input; 
+    char **input;
     input = ft_split(argv, ' ');
     int j = 0;
+    int is_digit;
+    char *str;
+    int num;
+
     while (input[j])
     {
-        char *str = input[j];
-        for (int k = 0; str[k] != '\0'; k++) {
-            if (!ft_isdigit(str[k])) {
-                return(0);
+        str = input[j];
+        is_digit = 1;
+        int k = 0;
+        while (str[k] != '\0')
+        {
+            if (!ft_isdigit(str[k]))
+            {
+                is_digit = 0;
+                break;
             }
+            k++;
         }
-
-        if (!stack_a->value)
-            stack_a->value = ft_atoi(str);
+        if (is_digit)
+        {
+            num = ft_atoi(str);
+            if (!stack_a->value)
+                stack_a->value = num;
+            else
+                insert_end(&stack_a, num);
+        }
         else
-            insert_end(&stack_a, ft_atoi(str));
-        
-        j++;         
+            return (0);
+        j++;
     }
     return (1);
 }
+int     init_stack_b(t_Stack *stack_b)
+{
+    stack_b->value = 0;
+    stack_b->next = NULL;
+    return (1);
+
+}
+
 int main(int argc, char **argv)
 {
     t_Stack *stack_a;
-    t_Stack *stack_b;
+    t_Stack *stack_b = malloc(sizeof(t_Stack));
 
-    stack_b = NULL;
-    
+    init_stack_b(stack_b);
     stack_a = malloc(sizeof(t_Stack));
     if (stack_a == NULL)
         exit(2);
     if (argc < 2 || (argc > 2 && !argv[1][0]))
         return (ft_printf("Error\n"));
     int i = 1;
-    while (i < argc) // Skipping the name of the file
+    while (i < argc)
     {
        if (!init_stack_a(stack_a, argv[i]))
             return(ft_printf("Error\n"));
@@ -72,8 +93,11 @@ int main(int argc, char **argv)
     }
     ft_printf("Init a and b:\n");
     for (t_Stack *curr = stack_a; curr != NULL; curr = curr->next)
-    {
         ft_printf("%d\n", curr->value);
-    }
+   ft_printf("_ _\na b\n");
+   sorting(stack_a, stack_b);
+       ft_printf("Sorted:\n");
+    for (t_Stack *curr = stack_a; curr != NULL; curr = curr->next)
+        ft_printf("%d\n", curr->value);
    ft_printf("_ _\na b\n");
 }

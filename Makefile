@@ -1,11 +1,11 @@
-NAME = a.out  # Change this to 'a.out' if you want the output file to be named 'a.out'
+NAME = a.out
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)  # Add include path for libft
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
 LIBFT_DIR = ./libft
 LIBS = -L$(LIBFT_DIR) -lft
 
 # Source files for pushswap
-PUSH_SWAP_SRCS = main.c utils.c utils1.c utils2.c
+PUSH_SWAP_SRCS = main.c utils.c utils1.c utils2.c helpers.c sorting.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 # 'all' target
