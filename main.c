@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/31 13:50:46 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:14:11 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int init_stack_a(t_Stack *stack_a, char *argv)
     {
         char *str = input[j];
         for (int k = 0; str[k] != '\0'; k++) {
-            if (ft_isalpha(str[k])) {
-                return(ft_printf("Error\n"));
+            if (!ft_isdigit(str[k])) {
+                return(0);
             }
         }
 
@@ -49,24 +49,25 @@ int init_stack_a(t_Stack *stack_a, char *argv)
         
         j++;         
     }
-    return (0);
+    return (1);
 }
 int main(int argc, char **argv)
 {
     t_Stack *stack_a;
     t_Stack *stack_b;
-    
+
     stack_b = NULL;
     
     stack_a = malloc(sizeof(t_Stack));
     if (stack_a == NULL)
         exit(2);
     if (argc < 2 || (argc > 2 && !argv[1][0]))
-        return (1);
+        return (ft_printf("Error\n"));
     int i = 1;
     while (i < argc) // Skipping the name of the file
     {
-       init_stack_a(stack_a, argv[i]);
+       if (!init_stack_a(stack_a, argv[i]))
+            return(ft_printf("Error\n"));
        i++;
     }
     ft_printf("Init a and b:\n");
