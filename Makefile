@@ -1,5 +1,5 @@
 NAME = a.out
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
 LIBFT_DIR = ./libft
 LIBS = -L$(LIBFT_DIR) -lft

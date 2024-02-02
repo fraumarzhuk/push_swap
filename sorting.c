@@ -6,27 +6,32 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/01 17:45:42 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:17:42 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void push_back_to_a(t_Stack *stack_a, t_Stack *stack_b)
-// {
-//     t_Stack *curr_a = stack_a;
-//     t_Stack *curr_b = stack_b;
-//     while (stack_b)
-//     {
-//         pa(&stack_a, &stack_b);
-//         curr_a = stack_a;
-//         curr_b = stack_b;
-//     }
-// }                                                  
+
+void push_to_b(t_Stack *stack_a, t_Stack *stack_b)
+{
+    t_Stack *curr_a = stack_a;
+    int count;
+
+    count = 0;
+    while (curr_a != NULL)
+    {
+        count++;
+        if (count > 3)
+            pb(&stack_a, &stack_b);
+        curr_a = curr_a->next;
+    }
+}
 
 void sorting(t_Stack *stack_a, t_Stack *stack_b)
 {
-    //1.Push back all elements from stack_b to stack_a, except three
+    push_to_b(stack_a, stack_b);
+    //1.Push all elements from stack_a to stack_b, except three
     //2. Sort the 3 elements left in stack_a
     //3. Loop as long as there are elements in stack B:
     //-- Find the current position of every element in stack_a and stack_b

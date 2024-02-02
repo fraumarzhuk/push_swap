@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/01/31 12:54:48 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:10:58 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ void pb(t_Stack **stack_a, t_Stack **stack_b)
 
     if (*stack_a != NULL)
     {
-        temp = *stack_a;            // Store the top element of stack_b
-        *stack_a = (*stack_a)->next; // Remove the top element from stack_b
-        temp->next = *stack_b;       // Push the removed element onto stack_a
+        temp = *stack_a;            // Store the top element of stack_a
+        *stack_a = (*stack_a)->next;// Remove the top element from stack_a
+        temp->next = (*stack_b);       // Push the removed element onto stack_b
         *stack_b = temp;
-        ft_printf("pa\n");
+        
+        ft_printf("pb\n");
     }
 }
 // ra (rotate a): Shift up all elements of stack a by 1.

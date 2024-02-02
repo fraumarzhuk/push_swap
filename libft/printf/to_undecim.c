@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:03:43 by mzhukova          #+#    #+#             */
-/*   Updated: 2023/11/28 16:10:24 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:44:05 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	fill_s(char *str, unsigned int n, unsigned int len)
 	unsigned int	i;
 
 	i = len - 1;
-	if (n < 0)
-	{
-		str[0] = '-';
-		n = -n;
-	}
+	// if (n < 0)
+	// {
+	// 	str[0] = '-';
+	// 	n = -n;
+	// }
 	if (n == 0)
 	{
 		str[0] = '0';

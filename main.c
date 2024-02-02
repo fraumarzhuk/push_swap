@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/01 16:56:35 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/02 18:13:12 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,20 @@ int init_stack_a(t_Stack *stack_a, char *argv)
     }
     return (1);
 }
-int     init_stack_b(t_Stack *stack_b)
-{
-    stack_b->value = 0;
-    stack_b->next = NULL;
-    return (1);
+// int     init_stack_b(t_Stack *stack_b)
+// {
+//     stack_b->next = NULL;
+//     return (1);
 
-}
+// }
 
 int main(int argc, char **argv)
 {
     t_Stack *stack_a;
     t_Stack *stack_b = malloc(sizeof(t_Stack));
+    stack_b = NULL;
 
-    init_stack_b(stack_b);
+    // init_stack_b(stack_b);
     stack_a = malloc(sizeof(t_Stack));
     if (stack_a == NULL)
         exit(2);
@@ -96,8 +96,11 @@ int main(int argc, char **argv)
         ft_printf("%d\n", curr->value);
    ft_printf("_ _\na b\n");
    sorting(stack_a, stack_b);
-       ft_printf("Sorted:\n");
+       ft_printf("Stack a:\n");
     for (t_Stack *curr = stack_a; curr != NULL; curr = curr->next)
         ft_printf("%d\n", curr->value);
-   ft_printf("_ _\na b\n");
+    ft_printf("Stack b:\n");
+    for (t_Stack *curr = stack_b; curr != NULL; curr = curr->next)
+        ft_printf("%d\n", curr->value); 
 }
+

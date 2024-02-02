@@ -35,6 +35,7 @@ void    rrr(t_Stack *stack_a, t_Stack *stack_b);
 int     init_stack_a(t_Stack *stack_a, char *argv);
 int     init_stack_b(t_Stack *stack_b);
 void    sorting(t_Stack *stack_a, t_Stack *stack_b);
+void    push_to_b(t_Stack *stack_a, t_Stack *stack_b);
 
 //helpers:
 
