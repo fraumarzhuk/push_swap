@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/02 18:10:58 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/05 14:59:49 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,16 @@ void pa(t_Stack **stack_a, t_Stack **stack_b)
 // Do nothing if a is empty.
 void pb(t_Stack **stack_a, t_Stack **stack_b)
 {
-    t_Stack *temp;
+    t_Stack *top;
 
-    if (*stack_a != NULL)
-    {
-        temp = *stack_a;            // Store the top element of stack_a
-        *stack_a = (*stack_a)->next;// Remove the top element from stack_a
-        temp->next = (*stack_b);       // Push the removed element onto stack_b
-        *stack_b = temp;
-        
-        ft_printf("pb\n");
-    }
+    if (*stack_a == NULL)
+        return;
+
+    top = *stack_a;
+    *stack_a = (*stack_a)->next;
+    top->next = *stack_b;
+    *stack_b = top;
+    ft_printf("pb\n");
 }
 // ra (rotate a): Shift up all elements of stack a by 1.
 // The first element becomes the last one.

@@ -11,13 +11,7 @@
 typedef struct s_Stack
 {
     int value;
-    int index;
-    int push_cost;
-    bool above_median;
-    bool cheapest;
-    struct s_Stack *target_node;
     struct s_Stack *next;
-    struct s_Stack *prev;
 }   t_Stack;
 
 void    insert_end(t_Stack **stack_a, int value);
@@ -34,8 +28,9 @@ void    rrb(t_Stack **stack_b);
 void    rrr(t_Stack *stack_a, t_Stack *stack_b);
 int     init_stack_a(t_Stack *stack_a, char *argv);
 int     init_stack_b(t_Stack *stack_b);
-void    sorting(t_Stack *stack_a, t_Stack *stack_b);
-void    push_to_b(t_Stack *stack_a, t_Stack *stack_b);
+void    sorting(t_Stack **stack_a, t_Stack **stack_b);
+void    push_to_b(t_Stack **stack_a, t_Stack **stack_b);
+int     stack_len(t_Stack *stack);
 
 //helpers:
 

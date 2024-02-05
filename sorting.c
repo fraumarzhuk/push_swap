@@ -6,29 +6,21 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/02 18:17:42 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:37:47 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void push_to_b(t_Stack *stack_a, t_Stack *stack_b)
+void push_to_b(t_Stack **stack_a, t_Stack **stack_b)
 {
-    t_Stack *curr_a = stack_a;
-    int count;
-
-    count = 0;
-    while (curr_a != NULL)
+    while (stack_len(*stack_a) > 3)
     {
-        count++;
-        if (count > 3)
-            pb(&stack_a, &stack_b);
-        curr_a = curr_a->next;
+        pb(stack_a, stack_b);
     }
 }
-
-void sorting(t_Stack *stack_a, t_Stack *stack_b)
+void sorting(t_Stack **stack_a, t_Stack **stack_b)
 {
     push_to_b(stack_a, stack_b);
     //1.Push all elements from stack_a to stack_b, except three
