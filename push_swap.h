@@ -31,6 +31,8 @@ int     init_stack_b(t_Stack *stack_b);
 void    sorting(t_Stack **stack_a, t_Stack **stack_b);
 void    push_to_b(t_Stack **stack_a, t_Stack **stack_b);
 int     stack_len(t_Stack *stack);
+int     is_sorted(t_Stack *stack);
+void    sort_stack_a(t_Stack **stack_a);
 
 //helpers:
 

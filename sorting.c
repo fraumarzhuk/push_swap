@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/05 16:37:47 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/05 16:48:08 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,34 @@ void push_to_b(t_Stack **stack_a, t_Stack **stack_b)
         pb(stack_a, stack_b);
     }
 }
+
+int is_sorted(t_Stack *stack)
+{
+    while (stack->next != NULL)
+    {
+        if (stack->value > stack->next->value)
+            return (0);
+        stack = stack->next;
+    }
+    return (1);
+}
+
+void sort_stack_a(t_Stack **stack_a)
+{
+
+    while (!is_sorted(*stack_a))
+    {
+        if ((*stack_a)->value > (*stack_a)->next->value)
+            sa(*stack_a);
+        else
+            ra(stack_a);
+    }
+}
 void sorting(t_Stack **stack_a, t_Stack **stack_b)
 {
     push_to_b(stack_a, stack_b);
-    //1.Push all elements from stack_a to stack_b, except three
+    sort_stack_a(stack_a);
+    //1.Push all elements from stack_a to stack_b, except three - done
     //2. Sort the 3 elements left in stack_a
     //3. Loop as long as there are elements in stack B:
     //-- Find the current position of every element in stack_a and stack_b
