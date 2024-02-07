@@ -3,106 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/05 16:38:05 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:45:36 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void insert_end(t_Stack **stack_a, int value)
+void find_last(t_Stack **stack);
+
+void insert_end(t_Stack **stack, int number) //append node
 {
-    t_Stack *new_node = malloc(sizeof(t_Stack));
+    t_Stack *new_node;
+    t_Stack *last_node;
+    
+    if (!stack)
+        return;
+    new_node = malloc(sizeof(t_Stack));
     if (!new_node)
-        exit (1);
+        return;    
     new_node->next = NULL;
-    new_node->value = value;
-
-    t_Stack *curr = *stack_a;
-    while (curr->next != NULL)
+    new_node->number = number;
+    if (!(*stack))
     {
-        curr = curr->next;
+        *stack = new_node;
+        new_node->prev = NULL;
     }
-    curr->next = new_node;
-}
-
-int init_stack_a(t_Stack *stack_a, char *argv)
-{
-    char **input;
-    input = ft_split(argv, ' ');
-    int j = 0;
-    int is_digit;
-    char *str;
-    int num;
-
-    while (input[j])
+    else
     {
-        str = input[j];
-        is_digit = 1;
-        int k = 0;
-        while (str[k] != '\0')
-        {
-            if (!ft_isdigit(str[k]))
-            {
-                is_digit = 0;
-                break;
-            }
-            k++;
-        }
-        if (is_digit)
-        {
-            num = ft_atoi(str);
-            if (!stack_a->value)
-                stack_a->value = num;
-            else
-                insert_end(&stack_a, num);
-        }
-        else
-            return (0);
-        j++;
+        last_node = find_last(*stack);
+        last_node->next = new_node;
+        new_node->prev = last_node;
     }
-    return (1);
+
 }
-int     init_stack_b(t_Stack *stack_b)
+
+int init_stack_a(t_Stack *stack_a, char **argv) //new one
 {
-    stack_b = malloc(sizeof(t_Stack));
-    stack_b->next = NULL;
-    return (1);
+    long number;
+    int i;
 
+    i = 0;
+    while (argv[i])
+    {
+        if (syntax_errors())
+            free_errors();
+        number = ft_atol(argv[i]);
+        if (number > INT_MAX || number < INT_MIN)
+            free_errors();
+        if (duplication_errors())
+            free_errors();
+        append_node(stack_a, number);
+    }
 }
 
-int main(int argc, char **argv)
+int main(int argc, char **argv) //updated main
 {
     t_Stack *stack_a;
     t_Stack *stack_b;
-    stack_b = NULL;
-
-    init_stack_b(stack_b);
     
-    stack_a = malloc(sizeof(t_Stack));
-    if (stack_a == NULL)
-        exit(2);
-    if (argc < 2 || (argc > 2 && !argv[1][0]))
+    stack_b = NULL;
+    stack_a = NULL;
+
+    if (argc == 1 || (argc == 2 && !argv[1][0]))
         return (ft_printf("Error\n"));
-    int i = 1;
-    while (i < argc)
+    if (argc == 2)
+        argv = ft_split(argv[1], ' ');
+    init_stack_a(stack_a, *(argv + 1));
+    
+    if (!is_sorted(stack_a))
     {
-       if (!init_stack_a(stack_a, argv[i]))
-            return(ft_printf("Error\n"));
-       i++;
+        if (stack_len(stack_a) == 2)
+            sa(stack_a);
+        if (stack_len(stack_a) == 3)
+            sort_three(&stack_a);
+        else
+            // perfom_magic_sorting(stack_a, stack_b);
+            ft_printf("To be done\n");
     }
-    ft_printf("Init a and b:\n");
-    for (t_Stack *curr = stack_a; curr != NULL; curr = curr->next)
-        ft_printf("%d\n", curr->value);
-   ft_printf("_ _\na b\n");
-   sorting(&stack_a, &stack_b);
-       ft_printf("Stack a:\n");
-    for (t_Stack *curr = stack_a; curr != NULL; curr = curr->next)
-        ft_printf("%d\n", curr->value);
-    ft_printf("Stack b:\n");
-    for (t_Stack *curr = stack_b; curr != NULL; curr = curr->next)
-        ft_printf("%d\n", curr->value); 
+    free(stack_a);
+    return (0);
 }
 
