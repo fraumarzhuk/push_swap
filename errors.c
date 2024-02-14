@@ -6,13 +6,13 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:24:23 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:28:19 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:42:26 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void syntax_errors(const char *str)
+int syntax_errors(const char *str)
 {
     if (!(*str == '-' || *str == '+' || (*str >= '0' && *str <= '9')))
         return(1);
@@ -27,7 +27,7 @@ void syntax_errors(const char *str)
     return (0);
 }
 
-void duplication_errors(t_Stack *stack, int n)
+int duplication_errors(t_Stack *stack, int n)
 {
     if (!stack)
         return(0);

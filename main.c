@@ -6,13 +6,12 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:31:56 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:43:32 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void find_last(t_Stack **stack);
 
 void insert_end(t_Stack **stack, int number) //append node
 {
@@ -40,7 +39,7 @@ void insert_end(t_Stack **stack, int number) //append node
 
 }
 
-int init_stack_a(t_Stack *stack_a, char **argv) //new one
+int init_stack_a(t_Stack **stack_a, char **argv) //new one
 {
     long number;
     int i;
@@ -54,8 +53,8 @@ int init_stack_a(t_Stack *stack_a, char **argv) //new one
         if (number > INT_MAX || number < INT_MIN)
             handle_errors(stack_a);
         if (duplication_errors(stack_a, number))
-            free_errors();
-        append_node(stack_a, number);
+            handle_errors(stack_a);
+        insert_end(stack_a, number);
     }
 }
 

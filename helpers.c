@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
+/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/07 15:45:51 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/02/14 14:35:52 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,13 @@ long ft_atol(const char *str) //asci to long
     while (is_digit(*str))
         res = res * 10 + (*str++ - '0');
     return (res);
+}
+
+t_Stack *find_last(t_Stack *stack)
+{
+    if (!stack)
+        return(NULL);
+    while (stack->next)
+        stack = stack->next;
+    return(stack);
 }
