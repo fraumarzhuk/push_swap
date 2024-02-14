@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:45:34 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:52:28 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void sort_three(t_Stack **stack_a) //new one
     else if ((*stack_a)->next == biggest_node)
         rra(stack_a);
     if ((*stack_a)->number > (*stack_a)->next->number)
-        sa(stack_a);
+        sa(*stack_a);
     
 }
 
@@ -74,11 +74,11 @@ void perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b)
     int len_a;
 
     len_a = stack_len(*stack_a);
-    if (len_a-- > 3 && !is_sorted(stack_a))
+    if (len_a-- > 3 && !is_sorted(*stack_a))
         pb(stack_a, stack_b);
-    if (len_a-- > 3 && !is_sorted(stack_a))
+    if (len_a-- > 3 && !is_sorted(*stack_a))
         pb(stack_a, stack_b);
-    while (len_a-- > 3 && !is_sorted(stack_a))
+    while (len_a-- > 3 && !is_sorted(*stack_a))
     {
         init_nodes(stack_a);
         move_to_b(stack_a, stack_b);

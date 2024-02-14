@@ -32,7 +32,7 @@ void    rr(t_Stack *stack_a, t_Stack *stack_b);
 void    rra(t_Stack **stack_a);
 void    rrb(t_Stack **stack_b);
 void    rrr(t_Stack *stack_a, t_Stack *stack_b);
-int     init_stack_a(t_Stack **stack_a, char **argv);
+void     init_stack_a(t_Stack **stack_a, char **argv);
 
 
 

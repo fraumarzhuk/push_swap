@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/05 14:59:49 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:49:57 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void sb(t_Stack *stack_b)
     temp = 0;
     if (stack_b != NULL && stack_b->next != NULL)
     {
-        temp = stack_b->value;
-        stack_b->value = stack_b->next->value;
-        stack_b->next->value = temp;
+        temp = stack_b->number;
+        stack_b->number = stack_b->next->number;
+        stack_b->next->number = temp;
         ft_printf("sb\n");
     }
 }

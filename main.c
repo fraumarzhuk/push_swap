@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:43:32 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:49:05 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void insert_end(t_Stack **stack, int number) //append node
 
 }
 
-int init_stack_a(t_Stack **stack_a, char **argv) //new one
+void init_stack_a(t_Stack **stack_a, char **argv) //new one
 {
     long number;
     int i;
@@ -52,7 +52,7 @@ int init_stack_a(t_Stack **stack_a, char **argv) //new one
         number = ft_atol(argv[i]);
         if (number > INT_MAX || number < INT_MIN)
             handle_errors(stack_a);
-        if (duplication_errors(stack_a, number))
+        if (duplication_errors(*stack_a, number))
             handle_errors(stack_a);
         insert_end(stack_a, number);
     }
@@ -70,7 +70,7 @@ int main(int argc, char **argv) //updated main
         return (ft_printf("Error\n"));
     if (argc == 2)
         argv = ft_split(argv[1], ' ');
-    init_stack_a(stack_a, *(argv + 1));
+    init_stack_a(&stack_a, (argv + 1));
     
     if (!is_sorted(stack_a))
     {

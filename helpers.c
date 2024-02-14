@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:35:52 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:50:39 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ long ft_atol(const char *str) //asci to long
             sign = - 1;
         str++;
     }
-    while (is_digit(*str))
+    while (ft_isdigit(*str))
         res = res * 10 + (*str++ - '0');
     return (res);
 }
