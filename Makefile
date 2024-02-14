@@ -5,7 +5,7 @@ LIBFT_DIR = ./libft
 LIBS = -L$(LIBFT_DIR) -lft
 
 # Source files for pushswap
-PUSH_SWAP_SRCS = main.c utils.c utils1.c utils2.c helpers.c sorting.c
+PUSH_SWAP_SRCS = main.c utils.c utils1.c utils2.c helpers.c sorting.c errors.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 # 'all' target

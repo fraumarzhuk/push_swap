@@ -22,6 +22,7 @@ typedef struct s_Stack
 
 void    insert_end(t_Stack **stack, int number);
 void    find_last(t_Stack **stack);
+void    current_index(t_Stack *stack);
 void    sa(t_Stack *stack_a);
 void    sb(t_Stack *stack_b);
 void    ss(t_Stack *stack_a, t_Stack *stack_b);
@@ -40,6 +41,14 @@ int     stack_len(t_Stack *stack);
 int     is_sorted(t_Stack *stack);
 void    sort_three(t_Stack **stack_a);
 long    ft_atol(const char *str);
+
+//Errors:
+
+
+void    syntax_errors(const char *str);
+void    duplication_errors(t_Stack *stack, int n);
+void    free_stack(t_Stack *stack);
+void    handle_errors(t_Stack **stack);
 
 
 #endif

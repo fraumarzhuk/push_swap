@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
+/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/07 15:45:36 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/02/14 14:31:56 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int init_stack_a(t_Stack *stack_a, char **argv) //new one
     i = 0;
     while (argv[i])
     {
-        if (syntax_errors())
-            free_errors();
+        if (syntax_errors(argv[i]))
+            handle_errors(stack_a);
         number = ft_atol(argv[i]);
         if (number > INT_MAX || number < INT_MIN)
-            free_errors();
-        if (duplication_errors())
+            handle_errors(stack_a);
+        if (duplication_errors(stack_a, number))
             free_errors();
         append_node(stack_a, number);
     }
@@ -80,7 +80,7 @@ int main(int argc, char **argv) //updated main
         if (stack_len(stack_a) == 3)
             sort_three(&stack_a);
         else
-            // perfom_magic_sorting(stack_a, stack_b);
+            // perfom_real_magic_sorting(stack_a, stack_b);
             ft_printf("To be done\n");
     }
     free(stack_a);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
+/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/07 15:55:09 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/02/08 17:45:37 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,27 @@ void sort_three(t_Stack **stack_a) //new one
     if ((*stack_a)->number > (*stack_a)->next->number)
         sa(stack_a);
     
+}
+
+void current_index(t_Stack *stack)
+{
+    int i;
+    int median;
+
+    i = 0;
+    if (!stack)
+        return;
+    median = stack_len(stack) / 2;
+    while (stack)
+    {
+        stack->index = i;
+        if (i <= median)
+            stack->above_median = true;
+        else
+            stack->above_median = false;
+        stack = stack->next;
+        ++i;   
+    }
 }
 
 void perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b)
