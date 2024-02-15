@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:49:05 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:25:38 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int main(int argc, char **argv) //updated main
         if (stack_len(stack_a) == 3)
             sort_three(&stack_a);
         else
-            // perfom_real_magic_sorting(stack_a, stack_b);
-            ft_printf("To be done\n");
+            perfom_real_magic_sorting(&stack_a, &stack_b);
+            // ft_printf("To be done\n");
     }
     free(stack_a);
     return (0);

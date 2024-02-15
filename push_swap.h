@@ -37,8 +37,8 @@ void     init_stack_a(t_Stack **stack_a, char **argv);
 
 
 //Errors:
-int    syntax_errors(const char *str);
-int   duplication_errors(t_Stack *stack, int n);
+int     syntax_errors(const char *str);
+int     duplication_errors(t_Stack *stack, int n);
 void    free_stack(t_Stack *stack);
 void    handle_errors(t_Stack **stack);
 
@@ -46,13 +46,18 @@ void    handle_errors(t_Stack **stack);
 t_Stack *find_last(t_Stack *stack);
 long    ft_atol(const char *str);
 int     stack_len(t_Stack *stack);
+t_Stack *find_min(t_Stack *stack);
+t_Stack *find_max(t_Stack *stack);
 
 //Sorting:
-void    push_to_b(t_Stack **stack_a, t_Stack **stack_b);
+void    move_to_b(t_Stack **stack_a, t_Stack **stack_b);
 int     is_sorted(t_Stack *stack);
 void    sort_three(t_Stack **stack_a);
 void    current_index(t_Stack *stack);
 void    perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b);
 
+//Sort_stacks:
+void move_a_to_b(t_Stack **stack_a, t_Stack **stack_b);
+void move_b_to_a(t_Stack **stack_a, t_Stack **stack_b);
 
 #endif

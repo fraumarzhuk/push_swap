@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:50:39 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:15:38 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,40 @@ t_Stack *find_last(t_Stack *stack)
     while (stack->next)
         stack = stack->next;
     return(stack);
+}
+
+t_Stack *find_min(t_Stack *stack)
+{
+    long min;
+    t_Stack *min_node;
+
+    min = LONG_MAX;
+    while (stack)
+    {
+        if (stack->number < min)
+        {
+            min = stack->number;
+            min_node = stack;
+        }
+        stack = stack->next;
+    }
+    return (min_node);
+}
+
+t_Stack *find_max(t_Stack *stack)
+{
+    long min;
+    t_Stack *max_node;
+
+    min = LONG_MIN;
+    while (stack)
+    {
+        if (stack->number > min)
+        {
+            min = stack->number;
+            max_node = stack;
+        }
+        stack = stack->next;
+    }
+    return (max_node);
 }

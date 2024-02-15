@@ -6,20 +6,20 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:52:28 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/15 16:34:56 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void push_to_b(t_Stack **stack_a, t_Stack **stack_b)
-{
-    while (stack_len(*stack_a) > 3)
-    {
-        pb(stack_a, stack_b);
-    }
-}
+// void push_to_b(t_Stack **stack_a, t_Stack **stack_b)
+// {
+//     while (stack_len(*stack_a) > 3)
+//     {
+//         pb(stack_a, stack_b);
+//     }
+// }
 
 int is_sorted(t_Stack *stack) //new one
 {
