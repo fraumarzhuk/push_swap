@@ -60,4 +60,9 @@ void    perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b);
 void move_a_to_b(t_Stack **stack_a, t_Stack **stack_b);
 void move_b_to_a(t_Stack **stack_a, t_Stack **stack_b);
 
+//Init a to b:
+
+void set_target_a(t_Stack *stack_a, t_Stack *stack_b);
+void cost_analysis_a(t_Stack *stack_a, t_Stack *stack_b);
+
 #endif
