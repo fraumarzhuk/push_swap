@@ -22,19 +22,26 @@ typedef struct s_Stack
 
 void    insert_end(t_Stack **stack, int number);
 void    sa(t_Stack *stack_a);
-void    sb(t_Stack *stack_b);
-void    ss(t_Stack *stack_a, t_Stack *stack_b);
-void    pa(t_Stack **stack_a, t_Stack **stack_b);
-void    pb(t_Stack **stack_a, t_Stack **stack_b);
-void    ra(t_Stack **stack_a);
-void    rb(t_Stack **stack_b);
-void    rr(t_Stack *stack_a, t_Stack *stack_b);
-void    rra(t_Stack **stack_a);
-void    rrb(t_Stack **stack_b);
-void    rrr(t_Stack *stack_a, t_Stack *stack_b);
 void     init_stack_a(t_Stack **stack_a, char **argv);
 
+//Commands:
 
+//Push
+void	push(t_Stack **dst, t_Stack **src);
+void	pa(t_Stack **stack_a, t_Stack **stack_b, bool print);
+void	pb(t_Stack **b, t_Stack **a, bool print);
+
+//Rotate
+void	rotate(t_Stack **stack);
+void	ra(t_Stack **stack_a, bool print);
+void	rb(t_Stack **stack_b, bool print);
+void	rr(t_Stack **stack_a, t_Stack *stack_b, bool print);
+
+//Rev_rotate
+void	rev_rotate(t_Stack **stack);
+void	rra(t_Stack **stack_a, bool print);
+void	rrb(t_Stack **stack_b, bool print);
+void	rrr(t_Stack **stack_a, t_Stack **stack_b, bool print);
 
 //Errors:
 int     syntax_errors(const char *str);
@@ -50,15 +57,16 @@ t_Stack *find_min(t_Stack *stack);
 t_Stack *find_max(t_Stack *stack);
 
 //Sorting:
-void    move_to_b(t_Stack **stack_a, t_Stack **stack_b);
 int     is_sorted(t_Stack *stack);
 void    sort_three(t_Stack **stack_a);
 void    current_index(t_Stack *stack);
 void    perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b);
 
 //Sort_stacks:
-void move_a_to_b(t_Stack **stack_a, t_Stack **stack_b);
-void move_b_to_a(t_Stack **stack_a, t_Stack **stack_b);
+void    move_a_to_b(t_Stack **stack_a, t_Stack **stack_b);
+void    move_b_to_a(t_Stack **stack_a, t_Stack **stack_b);
+void	rotate_both(t_Stack **stack_a, t_Stack **stack_b, t_Stack *cheapest_node);
+void	rev_rotate_both(t_Stack **stack_a, t_Stack **stack_b, t_Stack *cheapest_node);                 
 
 //Init a to b:
 
@@ -70,5 +78,13 @@ void    init_nodes_a(t_Stack *stack_a, t_Stack *stack_b);
 //Init b to a
 
 void    set_target_b(t_Stack *stack_a, t_Stack *stack_b);
+void    init_nodes_b(t_Stack *stack_a, t_Stack *stack_b);
+
+//Stack_init
+
+t_Stack	*get_cheapest(t_Stack *stack);
+void	prep_for_push(t_Stack **stack,
+						t_Stack *top_node,
+						char stack_name);
 
 #endif

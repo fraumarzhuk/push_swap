@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 11:07:43 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/16 11:28:43 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:33:58 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void set_target_b(t_Stack *stack_a, t_Stack *stack_b)
     }
 }
 
-void init_b_to_a(t_Stack *stack_a, t_Stack *stack_b)
+void init_nodes_b(t_Stack *stack_a, t_Stack *stack_b)
 {
    current_index(stack_a);
    current_index(stack_b);

@@ -1,11 +1,11 @@
 NAME = a.out
-CC = clang
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
 LIBFT_DIR = ./libft
 LIBS = -L$(LIBFT_DIR) -lft
 
 # Source files for pushswap
-PUSH_SWAP_SRCS = main.c helpers.c sorting.c errors.c ./commands/commands.c ./commands/commands1.c ./commands/commands2.c init_a_to_b.c init_b_to_a.c
+PUSH_SWAP_SRCS = main.c helpers.c sorting.c errors.c ./commands/push.c ./commands/rev_rotate.c init_a_to_b.c init_b_to_a.c sa.c sort_stacks.c rotate.c stack_init.c
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 
 # 'all' target

@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:24:23 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/14 14:42:26 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/16 11:52:09 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void free_stack(t_Stack *stack)
 
 void handle_errors(t_Stack **stack)
 {
-    free_stack(stack);
+    free_stack(*stack);
     ft_printf("Error\n");
     exit(1);
 }

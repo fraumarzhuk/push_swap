@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/16 11:30:33 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:39:18 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void sort_three(t_Stack **stack_a) //new one
     
     biggest_node = malloc(sizeof(t_Stack));
     if (*stack_a == biggest_node)
-        rra(stack_a);
+        rra(stack_a, false);
     else if ((*stack_a)->next == biggest_node)
-        rra(stack_a);
+        rra(stack_a, false);
     if ((*stack_a)->number > (*stack_a)->next->number)
         sa(*stack_a);
     
@@ -75,18 +75,18 @@ void perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b)
 
     len_a = stack_len(*stack_a);
     if (len_a-- > 3 && !is_sorted(*stack_a))
-        pb(stack_a, stack_b);
+        pb(stack_a, stack_b, false);
     if (len_a-- > 3 && !is_sorted(*stack_a))
-        pb(stack_a, stack_b);
+        pb(stack_a, stack_b, false);
     while (len_a-- > 3 && !is_sorted(*stack_a))
     {
-        init_nodes(stack_a);
-        move_to_b(stack_a, stack_b);
+        init_nodes_a(*stack_a, *stack_b);
+        move_a_to_b(stack_a, stack_b);
     }
     sort_three(stack_a);
     while (*stack_b)
     {
-        init_nodes(stack_b);
-        move_to_a(stack_a, stack_b);
+        init_nodes_b(*stack_a, *stack_b);
+        move_b_to_a(stack_a, stack_b);
     }
 }
