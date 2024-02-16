@@ -62,7 +62,13 @@ void move_b_to_a(t_Stack **stack_a, t_Stack **stack_b);
 
 //Init a to b:
 
-void set_target_a(t_Stack *stack_a, t_Stack *stack_b);
-void cost_analysis_a(t_Stack *stack_a, t_Stack *stack_b);
+void    set_target_a(t_Stack *stack_a, t_Stack *stack_b);
+void    cost_analysis_a(t_Stack *stack_a, t_Stack *stack_b);
+void    set_cheapest(t_Stack *stack);
+void    init_nodes_a(t_Stack *stack_a, t_Stack *stack_b);
+
+//Init b to a
+
+void    set_target_b(t_Stack *stack_a, t_Stack *stack_b);
 
 #endif
