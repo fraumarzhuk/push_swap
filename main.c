@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/15 16:25:38 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:28:01 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ void init_stack_a(t_Stack **stack_a, char **argv) //new one
         number = ft_atol(argv[i]);
         if (number > INT_MAX || number < INT_MIN)
             handle_errors(stack_a);
-        if (duplication_errors(*stack_a, number))
+        if (duplication_errors(*stack_a, (int)number))
             handle_errors(stack_a);
-        insert_end(stack_a, number);
+        insert_end(stack_a, (int)number);
+        i++;
     }
 }
 
@@ -76,7 +77,7 @@ int main(int argc, char **argv) //updated main
     {
         if (stack_len(stack_a) == 2)
             sa(stack_a);
-        if (stack_len(stack_a) == 3)
+        else if (stack_len(stack_a) == 3)
             sort_three(&stack_a);
         else
             perfom_real_magic_sorting(&stack_a, &stack_b);
