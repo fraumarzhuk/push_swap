@@ -83,6 +83,10 @@ int main(int argc, char **argv) //updated main
             perfom_real_magic_sorting(&stack_a, &stack_b);
             // ft_printf("To be done\n");
     }
+	while (stack_a){
+		ft_printf("%i\n", stack_a->number);
+		stack_a = stack_a->next;
+	}
     free(stack_a);
     return (0);
 }

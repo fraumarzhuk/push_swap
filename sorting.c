@@ -43,8 +43,9 @@ void sort_three(t_Stack **stack_a) //new one
         rra(stack_a, false);
     else if ((*stack_a)->next == biggest_node)
         rra(stack_a, false);
-    if ((*stack_a)->number > (*stack_a)->next->number)
-        sa(*stack_a);
+	if ((*stack_a)->number > (*stack_a)->next->number) {
+		sa(*stack_a);
+	}
     
 }
 
