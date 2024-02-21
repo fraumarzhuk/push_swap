@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/16 11:58:09 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:36:19 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	push(t_Stack **dst, t_Stack **src)
 	else
 	{
 		push_node->next = *dst;
-		push_node->next->prev = push_node;
+		// push_node->next->prev = push_node;
+		(*dst)->prev = push_node;
 		*dst = push_node; 
 	}
 }
@@ -48,4 +49,11 @@ void	pb(t_Stack **b, t_Stack **a, bool print)
 	push(b, a);
 	if (!print)
 		ft_printf("pb\n");
+	// t_Stack *temp = *a;
+    // int i = 0;
+	// while (temp){
+	// ft_printf("stack a_inside %i: %i\n", i, temp->number);
+	// temp = temp->next;
+	// i++;
+	// }
 }

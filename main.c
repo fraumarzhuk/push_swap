@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/19 11:28:01 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:10:11 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,16 +72,16 @@ int main(int argc, char **argv) //updated main
     if (argc == 2)
         argv = ft_split(argv[1], ' ');
     init_stack_a(&stack_a, (argv + 1));
-    
     if (!is_sorted(stack_a))
     {
         if (stack_len(stack_a) == 2)
             sa(stack_a);
         else if (stack_len(stack_a) == 3)
             sort_three(&stack_a);
-        else
+        else {
             perfom_real_magic_sorting(&stack_a, &stack_b);
             // ft_printf("To be done\n");
+        }
     }
 	while (stack_a){
 		ft_printf("%i\n", stack_a->number);

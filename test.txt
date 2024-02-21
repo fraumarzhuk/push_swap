@@ -1,0 +1,11 @@
+pb
+stack a_outside 0: 3
+stack a_outside 1: 2
+stack a_outside 2: 0
+stack a_outside 3: 4
+stack a_outside 4: 5
+stack a_outside 5: 6
+stack a_outside 6: 7
+stack a_outside 7: 8
+pb
+cost_analysis pls dont die: 0x0

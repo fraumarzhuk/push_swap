@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:53:12 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/16 12:54:45 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:18:30 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_Stack	*get_cheapest(t_Stack *stack)
 {
+	if (!stack)
 		return (NULL);
 	while (stack)
 	{
@@ -43,6 +44,7 @@ void	prep_for_push(t_Stack **stack,
 				rb(stack, false);
 			else
 				rrb(stack, false);
-		}	
+		}
+		
 	}
 }
