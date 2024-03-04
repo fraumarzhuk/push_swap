@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/21 14:39:38 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/04 13:00:42 by mzhukova         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ void sort_three(t_Stack **stack_a) //new one
     const t_Stack *biggest_node = find_max(*stack_a);
     
     if (*stack_a == biggest_node)
+    {
         ra(stack_a, false);
+    }
     else if ((*stack_a)->next == biggest_node)
+    {
         rra(stack_a, false);
-	if ((*stack_a)->number > (*stack_a)->next->number) {
-		sa(*stack_a);
-	}
-    
+    }
+	if ((*stack_a)->number > (*stack_a)->next->number)
+		sa(*stack_a); 
 }
 
 void current_index(t_Stack *stack)
