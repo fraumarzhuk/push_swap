@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 13:20:31 by mariannaz        ###   ########.fr       */
+/*   Updated: 2024/03/05 16:33:38 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,7 @@ int main(int argc, char **argv) //updated main
     
     stack_b = NULL;
     stack_a = NULL;
-/*    ft_printf("Current argv:\n");
-    for (int i = 1; i < argc; i++) {
-        ft_printf("%s\n", argv[i]);
-    }*/
+    
     if (argc == 1 || (argc == 2 && !argv[1][0]))
         return (ft_printf("Error\n"));
     if (argc == 2)
@@ -81,7 +78,7 @@ int main(int argc, char **argv) //updated main
     if (!is_sorted(stack_a))
     {
         if (stack_len(stack_a) == 2)
-            sa(stack_a);
+            sa(&stack_a, false);
         else if (stack_len(stack_a) == 3)
             sort_three(&stack_a);
         else {

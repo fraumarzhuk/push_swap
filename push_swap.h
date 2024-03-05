@@ -21,7 +21,6 @@ typedef struct s_Stack
 }   t_Stack;
 
 void    insert_end(t_Stack **stack, int number);
-void    sa(t_Stack *stack_a);
 void     init_stack_a(t_Stack **stack_a, char **argv);
 
 //Commands:
@@ -88,5 +87,10 @@ t_Stack	*get_cheapest(t_Stack *stack);
 void	prep_for_push(t_Stack **stack,
 						t_Stack *top_node,
 						char stack_name);
+// Swap:
+void	swap(t_Stack **head);
+void	sa(t_Stack	**a, bool print);
+void	sb(t_Stack **b, bool print);
+void	ss(t_Stack **a, t_Stack **b, bool print);
 
 #endif

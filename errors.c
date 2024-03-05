@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:24:23 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/16 11:52:09 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:34:39 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void free_stack(t_Stack *stack)
     while (stack)
     {
         temp = curr->next;
-        // curr->number = 0; (May help with debugging)
+        curr->number = 0;
         free(curr);
         curr = temp;
     }

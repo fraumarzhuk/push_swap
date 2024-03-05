@@ -6,20 +6,11 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 13:30:22 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/05 16:25:49 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-// void push_to_b(t_Stack **stack_a, t_Stack **stack_b)
-// {
-//     while (stack_len(*stack_a) > 3)
-//     {
-//         pb(stack_a, stack_b);
-//     }
-// }
 
 int is_sorted(t_Stack *stack) //new one
 {
@@ -47,7 +38,7 @@ void sort_three(t_Stack **stack_a) //new one
         rra(stack_a, false);
     }
 	if ((*stack_a)->number > (*stack_a)->next->number)
-		sa(*stack_a); 
+		sa(stack_a, false); 
 }
 
 void current_index(t_Stack *stack)

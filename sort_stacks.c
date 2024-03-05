@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:35:07 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 13:43:43 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/05 16:20:50 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ void move_a_to_b(t_Stack **stack_a, t_Stack **stack_b)
 void move_b_to_a(t_Stack **stack_a, t_Stack **stack_b)
 {
     prep_for_push(stack_a, (*stack_b)->target_node, 'a');
-    pb(stack_a, stack_b, false);
+    pa(stack_a, stack_b, false);
 }

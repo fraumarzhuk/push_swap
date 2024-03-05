@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 11:07:43 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 13:41:49 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/05 16:30:07 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void set_target_b(t_Stack *stack_a, t_Stack *stack_b)
         current_a = stack_a;
         while(current_a)
         {
-            if (current_a->number > best_match_index && current_a->number < best_match_index)
+            if (current_a->number > stack_b->number && current_a->number < best_match_index)
             {
                 best_match_index = current_a->number;
                 target_node = current_a;

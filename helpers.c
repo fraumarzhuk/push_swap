@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 13:49:03 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/05 14:07:19 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,20 @@ void print_stack_a(t_Stack *stack_a) {
 	ft_printf("Stack A Contents:\n");
 	while (stack_a != NULL) {
 		ft_printf("%d\n", stack_a->number);
-		stack_a = stack_a->next; // Move to the next node
+		stack_a = stack_a->next;
 	}
 }
 int stack_len(t_Stack *stack) //new one
 {
-    int count = 0;
-    t_Stack *current = stack;
-
-    while (current != NULL)
+    int count;
+    if (!stack)
+        return (0);
+    count = 0;
+    while (stack)
     {
+        stack = stack->next;
         count++;
-        current = current->next;
     }
-
     return count;
 }
 
