@@ -5,6 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/05 12:19:02 by mariannaz         #+#    #+#             */
+/*   Updated: 2024/03/05 16:54:46 by mariannazhu      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 18:24:23 by mzhukova          #+#    #+#             */
 /*   Updated: 2024/03/05 16:34:39 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
@@ -18,14 +30,17 @@ int syntax_errors(char *str)
           || *str == '-'
           || (*str >= '0' && *str <= '9')))
         return (1);
-    if ((*str == '+'
-         || *str == '-')
-        && !(str[1] >= '0' && str[1] <= '9'))
-        return (1);
-    while (*++str)
+    if ((*str == '+' || *str == '-'))
+    {
+        if (!(str[1] >= '1' && str[1] <= '9'))
+            return (1);
+        str++;
+    }
+    while (*str)
     {
         if (!(*str >= '0' && *str <= '9'))
             return (1);
+        str++;
     }
     return (0);
 }
@@ -44,25 +59,27 @@ int duplication_errors(t_Stack *stack, int n)
     
 }
 
-void free_stack(t_Stack *stack)
+void free_stack(t_Stack **stack)
 {
     t_Stack *temp;
     t_Stack *curr;
 
     if (!stack)
         return ;
-    while (stack)
+	curr = *stack;
+    while (curr)
     {
         temp = curr->next;
         curr->number = 0;
         free(curr);
         curr = temp;
     }
+	*stack = NULL;
 }
 
 void handle_errors(t_Stack **stack)
 {
-    free_stack(*stack);
+    free_stack(stack);
     ft_printf("Error\n");
     exit(1);
 }

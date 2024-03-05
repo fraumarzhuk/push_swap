@@ -45,7 +45,7 @@ void	rrr(t_Stack **stack_a, t_Stack **stack_b, bool print);
 //Errors:
 int     syntax_errors(char *str);
 int     duplication_errors(t_Stack *stack, int n);
-void    free_stack(t_Stack *stack);
+void    free_stack(t_Stack **stack);
 void    handle_errors(t_Stack **stack);
 
 //Helpers:
