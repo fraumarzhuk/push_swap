@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -I$(LIBFT_DIR)
 LIBFT_DIR = ./libft
