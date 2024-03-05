@@ -35,7 +35,7 @@ void	pb(t_Stack **b, t_Stack **a, bool print);
 void	rotate(t_Stack **stack);
 void	ra(t_Stack **stack_a, bool print);
 void	rb(t_Stack **stack_b, bool print);
-void	rr(t_Stack **stack_a, t_Stack *stack_b, bool print);
+void	rr(t_Stack **stack_a, t_Stack **stack_b, bool print);
 
 //Rev_rotate
 void	rev_rotate(t_Stack **stack);
@@ -56,6 +56,7 @@ int     stack_len(t_Stack *stack);
 t_Stack *find_min(t_Stack *stack);
 t_Stack *find_max(t_Stack *stack);
 void print_stack_a(t_Stack *stack_a);
+ void	min_on_top(t_Stack **stack_a);
 
 //Sorting:
 int     is_sorted(t_Stack *stack);

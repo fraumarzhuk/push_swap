@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 12:29:28 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/05 13:49:03 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ t_Stack *find_min(t_Stack *stack)
 {
     long min;
     t_Stack *min_node;
-
+    
+    if (!stack)
+        return (NULL);
     min = LONG_MAX;
     while (stack)
     {
@@ -84,18 +86,31 @@ t_Stack *find_min(t_Stack *stack)
 
 t_Stack *find_max(t_Stack *stack)
 {
-    long min;
+    long max;
     t_Stack *max_node;
 
-    min = LONG_MIN;
+    if (!stack)
+        return (NULL);
+    max = LONG_MIN;
     while (stack)
     {
-        if (stack->number > min)
+        if (stack->number > max)
         {
-            min = stack->number;
+            max = stack->number;
             max_node = stack;
         }
         stack = stack->next;
     }
     return (max_node);
+}
+
+ void	min_on_top(t_Stack **stack_a) 
+{
+	while ((*stack_a)->number != find_min(*stack_a)->number)
+	{
+		if (find_min(*stack_a)->above_median)
+			ra(stack_a, false);
+		else
+			rra(stack_a, false);
+	}
 }

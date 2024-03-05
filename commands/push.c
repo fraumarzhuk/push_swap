@@ -31,9 +31,9 @@ void	push(t_Stack **dst, t_Stack **src)
 	else
 	{
 		push_node->next = *dst;
-		// push_node->next->prev = push_node;
-		(*dst)->prev = push_node;
-		*dst = push_node; 
+		push_node->next->prev = push_node;
+		/*(*dst)->prev = push_node;*/
+		 *dst = push_node;
 	}
 }
 

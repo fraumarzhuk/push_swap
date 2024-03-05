@@ -40,10 +40,10 @@ void	rb(t_Stack **stack_b, bool print)
 		ft_printf("rb\n");
 }
 
-void	rr(t_Stack **stack_a, t_Stack *stack_b, bool print)
+void	rr(t_Stack **stack_a, t_Stack **stack_b, bool print)
 {
 	rotate(stack_a);
-	rotate(&stack_b);
+	rotate(stack_b);
 	if (!print)
 		ft_printf("rr\n");
 }

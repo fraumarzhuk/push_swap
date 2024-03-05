@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:13:27 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/21 14:48:12 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:52:54 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,17 @@ void cost_analysis_a(t_Stack *stack_a, t_Stack *stack_b)
     len_a = stack_len(stack_a);
     len_b = stack_len(stack_b);
 
-    t_Stack *stack_a_temp = stack_a;
-    while (stack_a_temp)
+    while (stack_a)
     {
-        stack_a_temp->push_cost = stack_a_temp->index;
-        if (!(stack_a_temp->above_median))
-            stack_a_temp->push_cost = len_a - (stack_a_temp->index);
-        ft_printf("cost_analysis pls dont die: %p\n", stack_a_temp->target_node);
-        if (stack_a_temp->target_node->above_median) {
-            stack_a_temp->push_cost += stack_a_temp->target_node->index;
+        stack_a->push_cost = stack_a->index;
+        if (!(stack_a->above_median))
+            stack_a->push_cost = len_a - (stack_a->index);
+        if (stack_a->target_node->above_median) {
+            stack_a->push_cost += stack_a->target_node->index;
         }
         else
-            stack_a_temp->push_cost += len_b - (stack_a_temp->target_node->index);
-        stack_a_temp = stack_a_temp->next;
+            stack_a->push_cost += len_b - (stack_a->target_node->index);
+        stack_a = stack_a->next;
     }
 }
 
@@ -89,7 +87,6 @@ void init_nodes_a(t_Stack *stack_a, t_Stack *stack_b)
     current_index(stack_b);
     set_target_a(stack_a, stack_b);
     cost_analysis_a(stack_a, stack_b);
-    ft_printf("init_nodes\n");
     set_cheapest(stack_a);
     
 }
