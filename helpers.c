@@ -3,15 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:26:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/15 16:15:38 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:29:28 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void print_stack_a(t_Stack *stack_a) {
+	ft_printf("Stack A Contents:\n");
+	while (stack_a != NULL) {
+		ft_printf("%d\n", stack_a->number);
+		stack_a = stack_a->next; // Move to the next node
+	}
+}
 int stack_len(t_Stack *stack) //new one
 {
     int count = 0;
@@ -45,7 +52,7 @@ long ft_atol(const char *str) //asci to long
     }
     while (ft_isdigit(*str))
         res = res * 10 + (*str++ - '0');
-    return (res);
+    return (res * sign);
 }
 
 t_Stack *find_last(t_Stack *stack)

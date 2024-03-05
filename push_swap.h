@@ -44,7 +44,7 @@ void	rrb(t_Stack **stack_b, bool print);
 void	rrr(t_Stack **stack_a, t_Stack **stack_b, bool print);
 
 //Errors:
-int     syntax_errors(const char *str);
+int     syntax_errors(char *str);
 int     duplication_errors(t_Stack *stack, int n);
 void    free_stack(t_Stack *stack);
 void    handle_errors(t_Stack **stack);
@@ -55,6 +55,7 @@ long    ft_atol(const char *str);
 int     stack_len(t_Stack *stack);
 t_Stack *find_min(t_Stack *stack);
 t_Stack *find_max(t_Stack *stack);
+void print_stack_a(t_Stack *stack_a);
 
 //Sorting:
 int     is_sorted(t_Stack *stack);

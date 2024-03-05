@@ -12,17 +12,20 @@
 
 #include "push_swap.h"
 
-int syntax_errors(const char *str)
+int syntax_errors(char *str)
 {
-    if (!(*str == '-' || *str == '+' || (*str >= '0' && *str <= '9')))
-        return(1);
-    if ((*str == '-' || *str == '+') && !(*str >= '0' && *str <= '9'))
+    if (!(*str == '+'
+          || *str == '-'
+          || (*str >= '0' && *str <= '9')))
         return (1);
-    while (*str)
+    if ((*str == '+'
+         || *str == '-')
+        && !(str[1] >= '0' && str[1] <= '9'))
+        return (1);
+    while (*++str)
     {
         if (!(*str >= '0' && *str <= '9'))
             return (1);
-        str++;
     }
     return (0);
 }

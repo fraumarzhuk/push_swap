@@ -6,7 +6,7 @@
 /*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/04 13:09:46 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/05 13:20:31 by mariannaz        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void insert_end(t_Stack **stack, int number) //append node
         last_node->next = new_node;
         new_node->prev = last_node;
     }
-
 }
 
 void init_stack_a(t_Stack **stack_a, char **argv) //new one
@@ -66,12 +65,19 @@ int main(int argc, char **argv) //updated main
     
     stack_b = NULL;
     stack_a = NULL;
-
+/*    ft_printf("Current argv:\n");
+    for (int i = 1; i < argc; i++) {
+        ft_printf("%s\n", argv[i]);
+    }*/
     if (argc == 1 || (argc == 2 && !argv[1][0]))
         return (ft_printf("Error\n"));
     if (argc == 2)
-        argv = ft_split(argv[1], ' ');
-    init_stack_a(&stack_a, (argv + 1));
+	{
+		argv = ft_split(argv[1], ' ');
+		init_stack_a(&stack_a, argv);
+	}
+	else
+    	init_stack_a(&stack_a, (argv +1));
     if (!is_sorted(stack_a))
     {
         if (stack_len(stack_a) == 2)

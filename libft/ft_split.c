@@ -100,18 +100,3 @@ char	**ft_split(char const *s, char c)
 	result[i] = NULL;
 	return (result);
 }
-
-// #include <stdio.h>
-// int main(void)
-// {
-// 	char *s1 = "ab,abc,,sggs,";
-// 	char del = ',';
-// 	char **res = ft_split(s1, del);
-// 	int i = 0;
-// 	while(res[i]){
-// 		printf("Result: %s\n", res[i]);
-// 		i++;
-// 	}
-// 	return (0);
-
-// }
