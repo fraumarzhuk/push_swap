@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 15:02:57 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 15:18:25 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	init_stack_a(t_Stack **stack_a, char **argv)
 		insert_end(stack_a, (int)number);
 		i++;
 	}
+	free_split(argv);
 }
 
 int	main(int argc, char **argv)
@@ -65,12 +66,11 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	stack_a = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (ft_printf("Error\n"));
+		return (1);
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
 		init_stack_a(&stack_a, argv);
-		free_split(argv);
 	}
 	else
 		init_stack_a(&stack_a, (argv +1));
