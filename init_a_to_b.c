@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:13:27 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 15:02:06 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 18:21:34 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	set_cheapest(t_Stack *stack)
 
 void	init_nodes_a(t_Stack *stack_a, t_Stack *stack_b)
 {
-	current_index(stack_a);
-	current_index(stack_b);
+	above_median(stack_a);
+	above_median(stack_b);
 	set_target_a(stack_a, stack_b);
 	cost_analysis_a(stack_a, stack_b);
 	set_cheapest(stack_a);

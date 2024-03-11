@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 14:50:11 by mariannazhu       #+#    #+#             */
-/*   Updated: 2024/03/11 14:57:25 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 18:17:56 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	min_on_top(t_Stack **stack_a);
 //Sorting:
 int		is_sorted(t_Stack *stack);
 void	sort_three(t_Stack **stack_a);
-void	current_index(t_Stack *stack);
+void	above_median(t_Stack *stack);
 void	perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b);
 
 //Sort_stacks:

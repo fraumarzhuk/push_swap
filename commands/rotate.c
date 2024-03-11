@@ -6,11 +6,11 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:49:06 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 15:00:55 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 18:22:23 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_Stack **stack)
 {

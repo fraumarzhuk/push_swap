@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:35:07 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 14:55:34 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 18:22:49 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	rotate_both(t_Stack **stack_a, t_Stack **stack_b,
 {
 	while (*stack_b != cheapest_node->target_node && *stack_a != cheapest_node)
 		rr(stack_a, stack_b, false);
-	current_index(*stack_a);
-	current_index(*stack_b);
+	above_median(*stack_a);
+	above_median(*stack_b);
 }
 
 void	rev_rotate_both(t_Stack **stack_a,
@@ -28,8 +28,8 @@ void	rev_rotate_both(t_Stack **stack_a,
 	while (*stack_b != cheapest_node->target_node
 		&& *stack_a != cheapest_node)
 		rrr(stack_a, stack_b, false);
-	current_index(*stack_a);
-	current_index(*stack_b);
+	above_median(*stack_a);
+	above_median(*stack_b);
 }
 
 void	move_a_to_b(t_Stack **stack_a, t_Stack **stack_b)

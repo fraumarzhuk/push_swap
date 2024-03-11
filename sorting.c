@@ -42,7 +42,7 @@ void	sort_three(t_Stack **stack_a)
 		sa(stack_a, false);
 }
 
-void	current_index(t_Stack *stack)
+void	above_median(t_Stack *stack)
 {
 	int	i;
 	int	median;
@@ -83,6 +83,6 @@ void	perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b)
 		init_nodes_b(*stack_a, *stack_b);
 		move_b_to_a(stack_a, stack_b);
 	}
-	current_index(*stack_a);
+	above_median(*stack_a);
 	min_on_top(stack_a);
 }

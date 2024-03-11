@@ -6,11 +6,11 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:20:23 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 14:49:54 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 18:22:18 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap(t_Stack **head)
 {
