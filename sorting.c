@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:39:19 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 16:25:49 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 14:11:24 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,24 +63,24 @@ void current_index(t_Stack *stack)
 }
 
 void perfom_real_magic_sorting(t_Stack **stack_a, t_Stack **stack_b) {
-	int len_a; //To store the length of stack `a`
+	int len_a;
 
 	len_a = stack_len(*stack_a);
-	if (len_a-- > 3 && !is_sorted(*stack_a)) //If stack `a` has more than three nodes and aren't sorted
+	if (len_a-- > 3 && !is_sorted(*stack_a))
 		pb(stack_b, stack_a, false);
-	if (len_a-- > 3 && !is_sorted(*stack_a)) //If stack `a` still has more than three nodes and aren't sorted
+	if (len_a-- > 3 && !is_sorted(*stack_a))
 		pb(stack_b, stack_a, false);
-	while (len_a-- > 3 && !is_sorted(*stack_a)) //If stack `a` still has more than three nodes and aren't sorted
+	while (len_a-- > 3 && !is_sorted(*stack_a))
 	{
-		init_nodes_a(*stack_a, *stack_b); //Iniate all nodes from both stacks
-		move_a_to_b(stack_a, stack_b); //Move the cheapest `a` nodes into a sorted stack `b`, until three nodes are left in stack `a`
+		init_nodes_a(*stack_a, *stack_b);
+		move_a_to_b(stack_a, stack_b);
 	}
 	sort_three(stack_a);
-	while (*stack_b) //Until the end of stack `b` is reached
+	while (*stack_b)
 	{
-		init_nodes_b(*stack_a, *stack_b); //Initiate all nodes from both stacks
-		move_b_to_a(stack_a, stack_b); //Move all `b` nodes back to a sorted stack `a`
+		init_nodes_b(*stack_a, *stack_b);
+		move_b_to_a(stack_a, stack_b);
 	}
-	current_index(*stack_a); //Refresh the current position of stack `a`
-	min_on_top(stack_a); //Ensure smallest number is on top
+	current_index(*stack_a);
+	min_on_top(stack_a);
 }

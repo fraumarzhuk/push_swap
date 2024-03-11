@@ -87,6 +87,7 @@ t_Stack	*get_cheapest(t_Stack *stack);
 void	prep_for_push(t_Stack **stack,
 						t_Stack *top_node,
 						char stack_name);
+void    free_split(char **split);
 // Swap:
 void	swap(t_Stack **head);
 void	sa(t_Stack	**a, bool print);

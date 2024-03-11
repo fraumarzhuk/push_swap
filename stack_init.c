@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:53:12 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/21 14:18:30 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/11 14:24:17 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,20 @@ void	prep_for_push(t_Stack **stack,
 		}
 		
 	}
+}
+
+void free_split(char **split)
+{
+    int i;
+
+    if (split == NULL)
+        return;
+    
+    i = 0;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
 }

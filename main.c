@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 16:33:38 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 14:23:25 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void init_stack_a(t_Stack **stack_a, char **argv) //new one
     }
 }
 
+
 int main(int argc, char **argv) //updated main
 {
     t_Stack *stack_a;
@@ -72,6 +73,7 @@ int main(int argc, char **argv) //updated main
 	{
 		argv = ft_split(argv[1], ' ');
 		init_stack_a(&stack_a, argv);
+        free_split(argv);
 	}
 	else
     	init_stack_a(&stack_a, (argv +1));
@@ -85,7 +87,7 @@ int main(int argc, char **argv) //updated main
             perfom_real_magic_sorting(&stack_a, &stack_b);
         }
     }
-    free(stack_a);
+    free_stack(&stack_a);
     return (0);
 }
 
