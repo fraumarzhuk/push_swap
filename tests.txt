@@ -1,0 +1,26 @@
+ 3246  ./push_swap 3
+ 3247  ./push_swap 3 +3
+ 3248  ./push_swap 3 +4
+ 3249  ./push_swap 3 +4 ++5
+ 3250  ./push_swap 3 +4 +-6
+ 3251  ./push_swap +0 1
+ 3252  ./push_swap +0 0
+ 3253  ./push_swap +0 -0
+ 3254  ./push_swap -0
+ 3255  ./push_swap "+0 -1"
+ 3256  ./push_swap "0 -1"
+ 3257  ./push_swap "0 -1" 2
+ 3258  ./push_swap 0 01 
+ 3259  ./push_swap 0 01 02 1 
+ 3260  ./push_swap 0 01 -02 
+ 3261  ./push_swap 0 01 -2 
+ 3262  ./push_swap man integer | grep 21 
+ 3263  man integer | grep 21 
+ 3264  ./push_swap 2147483647 2147483648
+ 3265  ./push_swap 2147483647 2147483646
+ 3266  ./push_swap -2147483647 2147483646
+ 3267  ./push_swap -2147483648 2147483646
+ 3268  ./push_swap -2147483649 2147483646
+ 3269  ./push_swap -2147483648 0 01 00  2147483646
+ 3270  ./push_swap -2147483648 0 01 02 -1 10 99 56 78 2147483646
+ 3271  leaks --atExit -- ./push_swap -2147483648 0 01 02 -1 10 99 56 78 2147483646

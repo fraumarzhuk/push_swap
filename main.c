@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:28 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 18:14:12 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 19:16:30 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,41 +57,41 @@ void	init_stack_a(t_Stack **stack_a, char **argv)
 	}
 }
 
-/*void print_stack(t_Stack **stack_a) {
-    // Check if the stack pointer is NULL
-    if (stack_a == NULL || *stack_a == NULL) {
-        ft_printf("The stack is empty.\n");
-        return;
-    }
+// void print_stack(t_Stack **stack_a) {
+//     // Check if the stack pointer is NULL
+//     if (stack_a == NULL || *stack_a == NULL) {
+//         ft_printf("The stack is empty.\n");
+//         return;
+//     }
 
-    // Pointer to traverse the stack
-    t_Stack *current = *stack_a;
+//     // Pointer to traverse the stack
+//     t_Stack *current = *stack_a;
 
-    // Traverse the stack and print each element
-    while (current != NULL) {
-        ft_printf("%d\n", current->number);
-        current = current->next; // Move to the next element
-    }
-}*/
+//     // Traverse the stack and print each element
+//     while (current != NULL) {
+//         ft_printf("%d\n", current->number);
+//         current = current->next; // Move to the next element
+//     }
+// }
 
-void	argc_init(int argc, char **argv, t_Stack *stack_a, t_Stack *stack_b)
+void	argc_init(int argc, char **argv, t_Stack **stack_a, t_Stack **stack_b)
 {
 	if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		init_stack_a(&stack_a, argv);
+		init_stack_a(stack_a, argv);
 		free_split(argv);
 	}
 	else
-		init_stack_a(&stack_a, (argv +1));
-	if (!is_sorted(stack_a))
+		init_stack_a(stack_a, (argv +1));
+	if (!is_sorted(*stack_a))
 	{
-		if (stack_len(stack_a) == 2)
-			sa(&stack_a, false);
-		else if (stack_len(stack_a) == 3)
-			sort_three(&stack_a);
+		if (stack_len(*stack_a) == 2)
+			sa(stack_a, false);
+		else if (stack_len(*stack_a) == 3)
+			sort_three(stack_a);
 		else
-			perfom_real_magic_sorting(&stack_a, &stack_b);
+			perfom_real_magic_sorting(stack_a, stack_b);
 	}
 }
 
@@ -104,7 +104,7 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
-	argc_init(argc, argv, stack_a, stack_b);
+	argc_init(argc, argv, &stack_a, &stack_b);
 	free_stack(&stack_a);
 	return (0);
 }
