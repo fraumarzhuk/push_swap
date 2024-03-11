@@ -6,27 +6,27 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 13:43:20 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/05 16:24:57 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 14:59:03 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_Stack **dst, t_Stack **src) 
+void	push(t_Stack **dst, t_Stack **src)
 {
-	t_Stack	*push_node; 
+	t_Stack	*push_node;
 
-	if (!*src) 
+	if (!*src)
 		return ;
-	push_node = *src; 
-	*src = (*src)->next; 
-	if (*src) 
-		(*src)->prev = NULL; 
+	push_node = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prev = NULL;
 	push_node->prev = NULL;
-	if (!*dst) 
+	if (!*dst)
 	{
-		*dst = push_node; 
-		push_node->next = NULL; 
+		*dst = push_node;
+		push_node->next = NULL;
 	}
 	else
 	{
@@ -38,15 +38,14 @@ void	push(t_Stack **dst, t_Stack **src)
 
 void	pa(t_Stack **stack_a, t_Stack **stack_b, bool print)
 {
-	push(stack_a, stack_b); 
-	if (!print) 
+	push(stack_a, stack_b);
+	if (!print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_Stack **b, t_Stack **a, bool print) 
+void	pb(t_Stack **b, t_Stack **a, bool print)
 {
 	push(b, a);
 	if (!print)
 		ft_printf("pb\n");
-
 }

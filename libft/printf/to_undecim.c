@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   to_undecim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mzhukova <mzhukova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 19:03:43 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/02/02 14:44:05 by mzhukova         ###   ########.fr       */
+/*   Updated: 2024/03/11 15:00:15 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ void	fill_s(char *str, unsigned int n, unsigned int len)
 	unsigned int	i;
 
 	i = len - 1;
-	// if (n < 0)
-	// {
-	// 	str[0] = '-';
-	// 	n = -n;
-	// }
 	if (n == 0)
 	{
 		str[0] = '0';

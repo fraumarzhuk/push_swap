@@ -6,7 +6,7 @@
 /*   By: mariannazhukova <mariannazhukova@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 12:53:12 by mzhukova          #+#    #+#             */
-/*   Updated: 2024/03/11 14:24:17 by mariannazhu      ###   ########.fr       */
+/*   Updated: 2024/03/11 14:49:19 by mariannazhu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_Stack	*get_cheapest(t_Stack *stack)
 
 void	prep_for_push(t_Stack **stack,
 						t_Stack *top_node,
-						char stack_name) 
+						char stack_name)
 {
-	while (*stack != top_node) 
+	while (*stack != top_node)
 	{
 		if (stack_name == 'a')
 		{
@@ -45,22 +45,20 @@ void	prep_for_push(t_Stack **stack,
 			else
 				rrb(stack, false);
 		}
-		
 	}
 }
 
-void free_split(char **split)
+void	free_split(char **split)
 {
-    int i;
+	int	i;
 
-    if (split == NULL)
-        return;
-    
-    i = 0;
-    while (split[i])
-    {
-        free(split[i]);
-        i++;
-    }
-    free(split);
+	if (split == NULL)
+		return ;
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }
